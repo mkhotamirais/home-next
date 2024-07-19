@@ -1,23 +1,15 @@
 "use client";
 
-import { updateImage } from "@/action/upload-image";
+import { uploadImage } from "@/action/upload-image";
 import { useFormState } from "react-dom";
 import { SubmitButton } from "@/components/upload-image/upload-buttons";
-import { Upload } from "@prisma/client";
 
-export const UpdateImageForm = ({ data }: { data: Upload }) => {
-  const [state, formAction] = useFormState(updateImage.bind(null, data.id), null);
+export const CreateImageForm = () => {
+  const [state, formAction] = useFormState(uploadImage, null);
   // console.log(state.error);
   return (
     <form action={formAction} className="flex flex-col gap-3">
-      <input
-        defaultValue={data.title}
-        type="title"
-        id="title"
-        name="title"
-        placeholder="title"
-        className="p-2 rounded border"
-      />
+      <input type="title" id="title" name="title" placeholder="title" className="p-2 rounded border" />
       <div aria-live="polite" aria-atomic="true">
         <p className="text-sm text-red-500">{state?.error?.title}</p>
       </div>
