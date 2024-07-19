@@ -30,10 +30,10 @@ export const Pagination = ({ totalPages }: { totalPages: number }) => {
     position: "first" | "last" | "middle" | "single" | undefined;
     isActive: boolean;
   }) => {
-    const className = clsx("flex h-full w-full items-center justify-center text-sm border", {
+    const className = clsx("flex h-full w-full items-center justify-center text-sm border min-w-5 w-max", {
       "rounded-l-sm": position === "first" || position === "single",
       "rounded-r-sm": position === "last" || position === "single",
-      "z-10 bg-blue-100 border-blue-500 text-white": isActive,
+      "z-10 bg-blue-100 border-blue-500": isActive,
       "hover:bg-gray-100": !isActive && position !== "middle",
       "text-gray-300 pointer-events-none": position === "middle",
     });
@@ -72,7 +72,7 @@ export const Pagination = ({ totalPages }: { totalPages: number }) => {
   };
 
   return (
-    <div className="inline-flex">
+    <div className="inline-flex my-3">
       <PaginationArrow direction="left" href={createPageURL(currentPage - 1)} isDisabled={currentPage <= 1} />
       <div className="flex -space-x-px">
         {allPages.map((page, index) => {

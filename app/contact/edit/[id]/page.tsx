@@ -10,7 +10,7 @@ export default async function EditContact({ params }: { params: { id: string } }
   }
 
   return (
-    <div className="p-3 mx-auto max-w-2xl">
+    <div className="p-3 mx-auto max-w-5xl min-h-screen shadow bg-white">
       <EditContactForm contact={contact} />
     </div>
   );

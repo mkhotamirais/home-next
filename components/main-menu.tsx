@@ -24,7 +24,7 @@ export function MainMenu() {
         onMouseEnter={() => {
           toggleMm();
         }}
-        variant="ghost"
+        variant={mm ? "default" : "ghost"}
         size="icon"
         className={`${
           mm ? "rotate-180" : "rotate-0"

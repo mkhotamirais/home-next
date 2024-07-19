@@ -4,12 +4,12 @@ import { db } from "@/lib/db";
 import { ContactSchema } from "@/schemas";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 8;
 
 export const getContacts = async (query: string, currentPage: number) => {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
   try {
-    // await new Promise((resolve) => setTimeout(resolve, 4000));
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
     const contacts = await db.contact.findMany({
       skip: offset,
       take: ITEMS_PER_PAGE,
